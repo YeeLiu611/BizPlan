@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worthy Space - Sophie's Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #6a3093;
+            --secondary-color: #a044ff;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Therapist Profile */
+        .therapist-profile {
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .profile-image {
+            height: 400px;
+            background-size: cover;
+            background-position: 30% center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-info .specialty {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-content {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .profile-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-header {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image {
+                height: 300px;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Worthy Space</a>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#therapists">Our Therapists</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="therapist-profile">
+        <div class="profile-header reveal-on-scroll">
+            <div class="profile-image" style="background-image: url('images/therapists/Sophie.png');"></div>
+            <div class="profile-info">
+                <h1>Sophie</h1>
+                <p class="specialty">Catholic/Christian integration for couples</p>
+            </div>
+        </div>
+        <div class="profile-content reveal-on-scroll">
+            <h2>Areas of focus / Approach</h2>
+            <p>I specialize in couple therapy, and I am passionate about welcoming spirituality into conversations as I work with couples. As a Christian of the Catholic tradition, I am versed in Sacred Scripture and can offer integration of theology related to marriage while working with Catholic couples and those seeking therapy from a Christian worldview. I see faith as being closely related to culture, and care to journey with couples of varying faiths and cultural backgrounds. I also support relationships where there are inter-faith and inter-cultural dynamics.</p>
+            <p>My areas of focus are work with dating and engaged couples, work with those looking to re-energize their relationship and to thrive in their marriage, as well as work with couples feeling stuck due to specific challenges. Common relationship challenges I help navigate include, but are not limited to: communication, parenting, family of origin work, sex and intimacy, life transitions, grief and loss. I aim to help couples foster greater connection, safety and love grounded in their own understanding of the Sacred. Therapeutic modalities which inform my work are Emotionally Focused Therapy (EFT), Gottman Method Couples Therapy as well as Mindful Self-Compassion. If applicable, I am also able to offer Discernment Counselling for couples discerning a separation/divorce.</p>
+        </div>
+    </main>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 滚动渐入效果
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html> 
