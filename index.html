@@ -476,6 +476,61 @@
             will-change: transform;
             backface-visibility: hidden;
         }
+
+        /* 滚动展开动画 */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-on-scroll-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-on-scroll-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-on-scroll-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-on-scroll-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-on-scroll-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-on-scroll-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .reveal-on-scroll,
+            .reveal-on-scroll-left,
+            .reveal-on-scroll-right,
+            .reveal-on-scroll-scale {
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -500,43 +555,43 @@
 
     <main class="main-content">
         <section id="about" class="section">
-            <h2>About Us</h2>
-            <p>At Worthy Space, we are a team of Marriage and Family Therapists (MFTs) who would be honoured to walk with you on your journey of healing, growth, and spiritual exploration. Spirituality can play an important role in holistic well-being; we offer a safe and nonjudgmental space where you can explore your spiritual beliefs and other concerns.</p>
-            <p>Our therapists bring diverse faith backgrounds and expertise in a wide range of therapeutic approaches, striving to create a safe space for you whether you are exploring your spirituality, or navigating other topics.</p>
+            <h2 class="reveal-on-scroll">About Us</h2>
+            <p class="reveal-on-scroll-left">At Worthy Space, we are a team of Marriage and Family Therapists (MFTs) who would be honoured to walk with you on your journey of healing, growth, and spiritual exploration. Spirituality can play an important role in holistic well-being; we offer a safe and nonjudgmental space where you can explore your spiritual beliefs and other concerns.</p>
+            <p class="reveal-on-scroll-right">Our therapists bring diverse faith backgrounds and expertise in a wide range of therapeutic approaches, striving to create a safe space for you whether you are exploring your spirituality, or navigating other topics.</p>
         </section>
 
         <section id="therapists" class="section">
-            <h2>Our Therapists</h2>
+            <h2 class="reveal-on-scroll">Our Therapists</h2>
             <div class="therapists-grid">
-                <div class="therapist-card">
+                <div class="therapist-card reveal-on-scroll-scale">
                     <div class="therapist-image" style="background-image: url('images/therapists/Athena.png');"></div>
                     <div class="therapist-info">
                         <h3>Athena</h3>
                         <p>Land-based and somacultural therapy (Indigenous-focused)</p>
                     </div>
                 </div>
-                <div class="therapist-card">
+                <div class="therapist-card reveal-on-scroll-scale">
                     <div class="therapist-image" style="background-image: url('images/therapists/Lindsay.png');"></div>
                     <div class="therapist-info">
                         <h3>Lindsay</h3>
                         <p>Christian faith-based counseling for individuals and couples</p>
                     </div>
                 </div>
-                <div class="therapist-card">
+                <div class="therapist-card reveal-on-scroll-scale">
                     <div class="therapist-image" style="background-image: url('images/therapists/Michelle.png');"></div>
                     <div class="therapist-info">
                         <h3>Michelle</h3>
                         <p>Ecotherapy and nature-based spirituality</p>
                     </div>
                 </div>
-                <div class="therapist-card">
+                <div class="therapist-card reveal-on-scroll-scale">
                     <div class="therapist-image" style="background-image: url('images/therapists/Sophie.png');"></div>
                     <div class="therapist-info">
                         <h3>Sophia</h3>
                         <p>Catholic/Christian integration for couples</p>
                     </div>
                 </div>
-                <div class="therapist-card">
+                <div class="therapist-card reveal-on-scroll-scale">
                     <div class="therapist-image" style="background-image: url('images/therapists/Yee.JPG');"></div>
                     <div class="therapist-info">
                         <h3>Yee</h3>
@@ -548,19 +603,19 @@
     </main>
 
     <section id="services" class="services">
-        <h2>Our Services</h2>
+        <h2 class="reveal-on-scroll">Our Services</h2>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll-left">
                 <h3>Individual Therapy</h3>
                 <p>50-minute sessions</p>
                 <p>$150 per session</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll-scale">
                 <h3>Couples Therapy</h3>
                 <p>50-minute sessions</p>
                 <p>$185 per session</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal-on-scroll-right">
                 <h3>Sliding Scale</h3>
                 <p>Limited spots available</p>
                 <p>Based on financial need</p>
@@ -569,12 +624,12 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
+        <h2 class="reveal-on-scroll">Contact Us</h2>
         <div class="contact-info">
-            <p>Phone: (XXX) XXX-XXXX</p>
-            <p>Email: info@worthyspace.ca</p>
-            <p>Address: 141 Bannatyne Avenue, Unit 305, Winnipeg, MB</p>
-            <a href="#" class="cta-button">Book Online</a>
+            <p class="reveal-on-scroll-left">Phone: (XXX) XXX-XXXX</p>
+            <p class="reveal-on-scroll-scale">Email: info@worthyspace.ca</p>
+            <p class="reveal-on-scroll-right">Address: 141 Bannatyne Avenue, Unit 305, Winnipeg, MB</p>
+            <a href="#" class="cta-button reveal-on-scroll">Book Online</a>
         </div>
     </section>
 
@@ -651,6 +706,41 @@
             element.addEventListener('touchend', function() {
                 this.style.transform = 'scale(1)';
             }, { passive: true });
+        });
+
+        // 滚动展开动画
+        const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-on-scroll-left, .reveal-on-scroll-right, .reveal-on-scroll-scale');
+        
+        const revealOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(element => {
+            revealOnScroll.observe(element);
+        });
+
+        // 优化滚动性能
+        let scrollTicking = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollTicking) {
+                window.requestAnimationFrame(function() {
+                    revealElements.forEach(element => {
+                        const rect = element.getBoundingClientRect();
+                        if (rect.top < window.innerHeight * 0.8) {
+                            element.classList.add('visible');
+                        }
+                    });
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
         });
     </script>
 </body>
