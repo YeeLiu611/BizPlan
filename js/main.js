@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 滚动展开动画
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    // 处理所有类型的滚动展开动画
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-on-scroll-left, .reveal-on-scroll-right, .reveal-on-scroll-scale');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     revealElements.forEach(element => {
         observer.observe(element);
     });
+
+    // 添加页面加载动画
+    document.body.classList.add('loaded');
 
     // 汉堡菜单功能
     const menuToggle = document.querySelector('.menu-toggle');
