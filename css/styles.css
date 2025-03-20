@@ -97,6 +97,7 @@ body {
     cursor: pointer;
     z-index: 1002;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 .menu-toggle span {
@@ -105,6 +106,10 @@ body {
     height: 3px;
     background-color: var(--primary-color);
     transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
 }
 
 /* 移动端导航样式 */
@@ -202,7 +207,34 @@ html {
     text-align: center;
     padding: 0 2rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-size: 200% 200%;
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+    transition: background-position 0.3s ease;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+    background-size: 200px 200px;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .hero h1 {
@@ -229,7 +261,7 @@ html {
     font-weight: bold;
     transition: all 0.3s ease;
     margin-top: 2rem;
-    animation: fadeInUp 1s ease 0.4s;
+    animation: fadeInUp 1s ease 0.4s, pulse 2s infinite;
     opacity: 0;
     animation-fill-mode: forwards;
 }
@@ -244,6 +276,16 @@ html {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .section {
@@ -282,6 +324,11 @@ html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: transform 0.5s ease;
+}
+
+.therapist-card:hover .therapist-image {
+    transform: scale(1.05);
 }
 
 .therapist-info {
@@ -296,6 +343,13 @@ html {
 .therapist-info a {
     color: var(--primary-color);
     text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.therapist-info a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.05);
 }
 
 .therapist-info p {
@@ -323,11 +377,34 @@ html {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(106, 48, 147, 0.2);
 }
 
 .service-card h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    position: relative;
+}
+
+.service-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.service-card:hover h3::after {
+    width: 50%;
+    left: 25%;
 }
 
 /* Contact Section */
@@ -352,6 +429,13 @@ html {
 .contact-info p {
     margin-bottom: 1rem;
     font-size: 1.1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.contact-info p:hover {
+    transform: translateY(-3px);
+    color: var(--primary-color);
 }
 
 /* Footer */
@@ -364,6 +448,12 @@ html {
 
 .footer p {
     margin-bottom: 0.5rem;
+    transition: opacity 0.3s ease;
+    cursor: default;
+}
+
+.footer p:hover {
+    opacity: 0.8;
 }
 
 /* Animations */
@@ -433,4 +523,23 @@ html {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* 导航链接增强效果 */
+.nav-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* 添加脉动动画到CTA按钮 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
 } 
