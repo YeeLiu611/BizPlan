@@ -184,6 +184,14 @@ html {
     backface-visibility: hidden;
 }
 
+/* 咨询师提示文字 */
+.therapist-note {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: var(--primary-color);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -394,4 +402,14 @@ html {
 .reveal-on-scroll-scale.visible {
     opacity: 1;
     transform: translateX(0) scale(1);
+}
+
+/* 确保淡入效果 */
+.fade-in {
+    transition: opacity 1s ease-in-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 } 
