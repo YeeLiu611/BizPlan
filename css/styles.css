@@ -412,4 +412,25 @@ html {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 确保卡片悬浮效果 */
+.therapist-card.fade-in:hover {
+    transform: translateY(-5px) !important;
+}
+
+/* 确保导航链接下划线动画 */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 } 
